@@ -110,19 +110,19 @@ Model: llava
 # ROS Bridge WebSocket配置
 URL: ws://localhost:9090
 Robot Name: Baymax
-Navigation Service: /baymax/set_goal_pose
+Navigation Service: set_goal_pose
 Status Topic: /baymax/navigation_status
 ```
 
 ### 導航指令格式
 
-#### Service模式
+#### Service模式（實體機器人）
 系統使用ROS Service調用進行導航，格式如下：
 
 ```json
 {
   "op": "call_service",
-  "service": "/baymax/set_goal_pose",
+  "service": "set_goal_pose",
   "args": {
     "task_mode": 0,
     "task_times": 1,
