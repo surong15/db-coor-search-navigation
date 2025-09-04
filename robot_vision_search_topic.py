@@ -119,8 +119,8 @@ class IsaacSimClient:
         
         self.ws = None
         self.connected = False
-        self.navigation_topic = "/baymax/navigation_goal"
-        self.status_topic = "/baymax/navigation_status"
+        self.navigation_topic = "/ROBOTNAME/navigation_goal"
+        self.status_topic = "/ROBOTNAME/navigation_status"
         self.last_navigation_time = 0
         self.min_interval = 0  # 移除導航間隔限制
         self.navigation_status = "Idle"
@@ -253,7 +253,7 @@ class IsaacSimClient:
         
         return {
             'success': True,
-            'robot_name': 'Baymax',
+            'robot_name': 'ROBOTNAME',
             'navigation_status': self.navigation_status,
             'connected': self.connected,
             'timestamp': time.time()
@@ -1237,7 +1237,7 @@ class SafeRobotVisionSearchGUI:
         
         ttk.Label(ros_frame, text="機器人:").grid(row=0, column=3, sticky=tk.W)
         self.robot_name_entry = ttk.Entry(ros_frame, width=10)
-        self.robot_name_entry.insert(0, "Baymax")
+        self.robot_name_entry.insert(0, "ROBOTNAME")
         self.robot_name_entry.grid(row=0, column=4, padx=(5, 10))
         
         self.isaac_status_label = ttk.Label(ros_frame, text="未連接", foreground="red")
