@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # 拿掉clip，用llava對資料庫的ai answer做篩選挑出候選人，再用llava對圖片及敘述做評估
-# 可直接對三期八樓baymax輸入座標
+# 可直接對三期八樓ROBOTNAME輸入座標
 
 """
 機器人視覺記錄搜尋系統 - LLaVA語義搜尋版本 + ROS Bridge整合
@@ -120,7 +120,7 @@ class IsaacSimClient:
         self.ws = None
         self.connected = False
         self.navigation_service = "/set_goal_pose"  # 導航服務
-        self.status_topic = "/baymax/navigation_status"    # 狀態 topic (仍使用 topic)
+        self.status_topic = "/ROBOTNAME/navigation_status"    # 狀態 topic (仍使用 topic)
         self.last_navigation_time = 0
         self.min_interval = 0  # 移除導航間隔限制
         self.navigation_status = "Idle"
@@ -242,7 +242,7 @@ class IsaacSimClient:
         
         return {
             'success': True,
-            'robot_name': 'Baymax',
+            'robot_name': 'ROBOTNAME',
             'navigation_status': self.navigation_status,
             'connected': self.connected,
             'timestamp': time.time()
@@ -1225,7 +1225,7 @@ class SafeRobotVisionSearchGUI:
         
         ttk.Label(ros_frame, text="機器人:").grid(row=0, column=3, sticky=tk.W)
         self.robot_name_entry = ttk.Entry(ros_frame, width=10)
-        self.robot_name_entry.insert(0, "Baymax")
+        self.robot_name_entry.insert(0, "ROBOTNAME")
         self.robot_name_entry.grid(row=0, column=4, padx=(5, 10))
         
         self.isaac_status_label = ttk.Label(ros_frame, text="未連接", foreground="red")
