@@ -109,9 +109,9 @@ Model: llava
 ```python
 # ROS Bridge WebSocket配置
 URL: ws://localhost:9090
-Robot Name: Baymax
+Robot Name: ROBOTNAME
 Navigation Service: set_goal_pose
-Status Topic: /baymax/navigation_status
+Status Topic: /ROBOTNAME/navigation_status
 ```
 
 ### 導航指令格式
@@ -161,7 +161,7 @@ Status Topic: /baymax/navigation_status
 ```json
 {
   "op": "publish",
-  "topic": "/baymax/navigation_goal",
+  "topic": "/ROBOTNAME/navigation_goal",
   "msg": {
     "header": {
       "stamp": {
@@ -201,7 +201,7 @@ Status Topic: /baymax/navigation_status
 ```json
 {
   "op": "subscribe",
-  "topic": "/baymax/navigation_status",
+  "topic": "/ROBOTNAME/navigation_status",
   "type": "std_msgs/String"
 }
 ```
